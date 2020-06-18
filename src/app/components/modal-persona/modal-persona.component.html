@@ -1,0 +1,69 @@
+
+<div class="modal" id="modalPersona" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{edit ? 'Actualizar persona' : 'Agregar persona'}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="formPersona" [formGroup]="formPersona" (ngSubmit)="onSave(formPersona)">
+                    <input type="hidden" name="id" id="id" formControlName="id">
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre">
+                        <div *ngIf ="formPersona.controls['nombre'].invalid &&
+                                    formPersona.controls['nombre'].touched"
+                                    class="is-invalid">
+                                    El nombre es obligatorio.
+                        </div>
+                    </div>    
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" class="form-control" placeholder="Apellido" formControlName="apellido">
+                            <div *ngIf ="formPersona.controls['apellido'].invalid &&
+                                        formPersona.controls['apellido'].touched"
+                                        class="is-invalid">
+                                        El apellido es obligatorio.
+                            </div>
+                        </div>  
+    
+                        <div class="form-group col-md-6">
+                            <label for="edad">Edad</label>
+                            <input type="text" class="form-control" placeholder="Edad" formControlName="edad">
+                            <div *ngIf ="formPersona.controls['edad'].invalid &&
+                                        formPersona.controls['edad'].touched"
+                                        class="is-invalid">
+                                        La edad es obligatoria.
+                                        Solo se permiten números.
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dni">DNI</label>
+                        <input type="text" class="form-control" placeholder="DNI" formControlName="dni">
+                        <div *ngIf ="formPersona.controls['dni'].invalid &&
+                        formPersona.controls['dni'].touched"
+                                    class="is-invalid">
+                                    El DNI es obligatorio.
+                                    Solo se permiten números.
+                        </div>
+                    </div>  
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnClose (click)="onClose()">Cerrar</button>
+                        <button type="submit " class="btn btn-primary " #btnClose [disabled]="formPersona.invalid">Guardar Persona</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
