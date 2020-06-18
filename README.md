@@ -1,6 +1,6 @@
 # Metodologia Parcial 2
 
-# Ejecutar con el backend que está el rama "back"
+# Ejecutar con el backend que está el rama "backend"
 
 ## U.T.N. F-R-M
 ## Profesor: Mag. Cortez Alberto
